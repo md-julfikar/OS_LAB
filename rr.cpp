@@ -48,6 +48,7 @@ int main(){
             continue;
         }
         int inx=q.front();
+        inque[inx]=false;
         q.pop();
         int execTime=min(quantum,processes[inx].remainingTime);
         processes[inx].remainingTime-=execTime;
@@ -66,7 +67,6 @@ int main(){
             processes[inx].completionTime=currentTime;
             processes[inx].turnAroundTime=currentTime-processes[inx].arrivalTime;
             processes[inx].waitingTime=processes[inx].turnAroundTime-processes[inx].burstTime;
-            inque[inx]=false;
             totalTAT+=processes[inx].turnAroundTime;
             totalWT+=processes[inx].waitingTime;
             ++completed;
